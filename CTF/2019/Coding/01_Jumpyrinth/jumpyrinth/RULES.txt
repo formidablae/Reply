@@ -1,0 +1,150 @@
+RULES
+=====
+
+$ : Start of the path, move down of one position.
+
+              $ <- (1) Start from here.
+              x <- (2) Then move here.
+
+@ : End of the path, check the FLAG string. ;)
+
+# : Do nothing.
+
+( : Pop from the STACK and prepend the char to the FLAG string, then jump to the left by the number of chars specified on the right.
+
+              xooooooooooo(12
+              ^           ^^
+              |           ||
+              |           |+- (2) Read this number.
+              |           +-- (1) Pop from the STACK and prepend the char to the FLAG string.
+              +-------------- (3) Then jump here.
+
+) : Pop from the STACK and append the char to the FLAG string, then jump to the right by the number of chars specified on the left.
+
+              21)ooooooooooox
+              ^ ^           ^
+              | |           |
+              | |           +- (3) Then jump here.
+              | +------------- (1) Pop from the STACK and append the char to the FLAG string.
+              +--------------- (2) Read this number.
+
+- : Remove the first char of the FLAG string, then jump above by the number of chars specified below.
+
+              x <- (3) Then jump here.
+              o
+              o
+              o
+              o
+              o
+              o
+              o
+              o
+              o
+              o
+              o
+              - <- (1) Remove the first char of the FLAG string.
+              1 <- (2) Read this number.
+              2
+
++ : Remove the last char of the FLAG string, then jump below by the number of chars specified above.
+
+              2
+              1 <- (2) Read this number.
+              + <- (1) Remove the last char of the FLAG string.
+              o
+              o
+              o
+              o
+              o
+              o
+              o
+              o
+              o
+              o
+              o
+              x <- (3) Then jump here.
+
+% : Reverse the FLAG string, then move down of one position.
+
+              % <- (1) Reverse the FLAG string.
+              x <- (2) Then move here.
+
+[ : Read the char to the right, push it into the STACK, than jump to the char at the right of it.
+
+              [cx
+               ^^
+               ||
+               |+- (2) Then jump here.
+               +-- (1) Read this char and push it into the STACK.
+
+] : Read the char to the left, push it into the STACK, than jump to the char at the left of it.
+
+              xc]
+              ^^
+              ||
+              |+- (1) Read this char and push it into the STACK.
+              +-- (2) Then jump here.
+
+* : Read the char above it, push it into the STACK, than jump to the char above of that char.
+
+              x <- (2) Then jump here.
+              c <- (1) Read this char and push it into the STACK.
+              *
+
+. : Read the char below it, push it into the STACK, than jump to the char below of that char.
+
+              .
+              c <- (1) Read this char and push it into the STACK.
+              x <- (2) Then jump here.
+
+< : Jump to the left by the number of chars specified on the right.
+
+              xooooooooooo<12
+              ^            ^
+              |            |
+              |            +- (1) Read this number.
+              +-------------- (2) Then jump here.
+              
+> : Jump to the right by the number of chars specified on the left.
+
+              21>ooooooooooox
+              ^             ^
+              |             |
+              |             +- (2) Then jump here.
+              +--------------- (1) Read this number.
+
+^ : Jump above by the number of chars specified below.
+
+              x <- (2) Then jump here.
+              o
+              o
+              o
+              o
+              o
+              o
+              o
+              o
+              o
+              o
+              o
+              ^
+              1 <- (1) Read this number.
+              2
+
+v : Jump below by the number of chars specified above.
+
+              2
+              1 <- (1) Read this number.
+              v
+              o
+              o
+              o
+              o
+              o
+              o
+              o
+              o
+              o
+              o
+              o
+              x <- (2) Then jump here.

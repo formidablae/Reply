@@ -1,0 +1,82 @@
+{
+   __type(name:"RootQuery") {
+      fields {
+         name
+         description
+      }  
+   }
+}
+
+{
+  "data": {
+    "__type": {
+      "fields": [
+        {
+          "name": "me",
+          "description": null
+        },
+        {
+          "name": "allUsers",
+          "description": null
+        },
+        {
+          "name": "user",
+          "description": null
+        },
+        {
+          "name": "post",
+          "description": null
+        },
+        {
+          "name": "allPublicPosts",
+          "description": null
+        },
+        {
+          "name": "getAsset",
+          "description": null
+        }
+      ]
+    }
+  }
+}
+
+
+{
+   __type(name:"User") {
+      fields {
+         name
+         description
+      }  
+   }
+}
+
+{
+  "data": {
+    "__type": {
+      "fields": [
+        {
+          "name": "id",
+          "description": null
+        },
+        {
+          "name": "username",
+          "description": null
+        },
+        {
+          "name": "firstName",
+          "description": null
+        },
+        {
+          "name": "lastName",
+          "description": null
+        },
+        {
+          "name": "posts",
+          "description": null
+        }
+      ]
+    }
+  }
+}
+
+
